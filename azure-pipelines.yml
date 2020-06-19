@@ -10,6 +10,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      test_command='curl -sL \
+          -w "%{http_code}\\n" \
+          "http://www.google.com:8080/" \
+          -o /dev/null \
+          --connect-timeout 3 \
+          --max-time 5'
+      if [ $(test_command) == "200" ] ; 
+      then
+         echo "OK" ;
+      else
+         echo "KO" ;
+      fi
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
