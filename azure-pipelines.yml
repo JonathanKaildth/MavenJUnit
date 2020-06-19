@@ -14,11 +14,11 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      curl -sL -w "%{http_code}\\n" "http://www.google.com/" -o /dev/null
+      curl -w "%{http_code}\\n" "http://www.google.com/" -o /dev/null
       
-      curl -sL -w "%{http_code}\\n" "http://www.microsoft.com/" -o /dev/null
+      curl -w "%{http_code}\\n" "http://www.microsoft.com/" -o /dev/null
       
-      curl -sL -w "%{http_code}\\n" "http://www.apple.com/" -o /dev/null
+      curl -w "%{http_code}\\n" "http://www.apple.com/" -o /dev/null
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
