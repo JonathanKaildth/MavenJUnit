@@ -15,7 +15,6 @@ steps:
     targetType: 'inline'
     script: |
       Test-Connection -TargetName www.google.com  -IPv4
-      Test-Connection -TargetName www.google.com -Traceroute
 
 - task: Maven@3
   inputs:
